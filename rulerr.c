@@ -1,46 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   rulerr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 21:25:45 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/24 22:36:36 by mucakmak         ###   ########.fr       */
+/*   Created: 2023/08/24 23:36:56 by mucakmak          #+#    #+#             */
+/*   Updated: 2023/08/25 00:21:58 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	del(int nbr)
+void	reverse_rotate(t_list **list)
 {
-	nbr = 0;
+	t_list	*endbutone;
+	t_list	*end;
+
+	endbutone = *list;
+	while (endbutone->next->next)
+		endbutone = endbutone->next;
+	end = ft_lstlast(*list);
+	end->next = *list;
+	*list = end;
+	endbutone->next = NULL;
 }
 
-void	swap(t_list **list)
+void	rra(t_list **stack_a)
 {
-	t_list	*temp;
-
-	if (ft_lstsize(*list) < 2)
-		return ;
-	temp = (*list)->next;
-	(*list)->next = temp->next;
-	temp->next = (*list);
-	*list = temp;
+	reverse_rotate(stack_a);
 }
 
-void	sa(t_list **stack_a)
+void	rrb(t_list **stack_b)
 {
-	swap(stack_a);
+	reverse_rotate(stack_b);
 }
 
-void	sb(t_list **stack_b)
+void	rrr(t_list **stack_a, t_list **stack_b)
 {
-	swap(stack_b);
-}
-
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 }

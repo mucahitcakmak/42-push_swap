@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:29:24 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/24 22:32:00 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/25 00:22:49 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ void	rotate(t_list	**list);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
 void	rr(t_list **stack_a, t_list **stack_b);
+
+// rulerr.c
+void	reverse_rotate(t_list **list);
+void	rra(t_list **stack_a);
+void	rrb(t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
 
 // rules.c
 void	del(int nbr);
