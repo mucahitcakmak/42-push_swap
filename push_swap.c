@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 19:16:33 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/25 00:26:06 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/25 09:45:07 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	write_list(char *str, t_list *a)
 	printf("%s\n", str);
 	while (a)
 	{
-		printf("%d\n", a->content);
+		printf("%d -> %d\n", a->content, a->flag);
 		a = a->next;
 	}
 	printf("----------------\n");
@@ -49,6 +49,9 @@ int	main(int argc, char *argv[])
 	if (argc == 1)
 		return (0);
 	stack_init(&stack_a, argv + 1);
+	// arguman_check();
+	check_sorting(stack_a);
+	arg_controller(argc, &stack_a, &stack_b);
 	write_list("Stack_A", stack_a);
 	write_list("Stack_B", stack_b);
 	return (0);

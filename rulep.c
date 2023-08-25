@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rule.c                                             :+:      :+:    :+:   */
+/*   rulep.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:25:31 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/24 21:04:38 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/25 08:40:17 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ void	push(t_list **src, t_list **dest)
 void	pa(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_b, stack_a);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_list **stack_a, t_list **stack_b)
 {
 	push(stack_a, stack_b);
+	write(1, "pb\n", 3);
 }

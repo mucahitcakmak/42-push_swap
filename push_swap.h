@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:29:24 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/25 00:22:49 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/25 09:10:21 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "libft/libft.h"
 # include <stdio.h>
+
+// min_argument.c
+void	arg_controller(int argc, t_list **stack_a, t_list **stack_b);
+void	three_argument(t_list **stack_a, t_list **stack_b);
 
 // rulep.c
 void	push(t_list **src, t_list **dst);

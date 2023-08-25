@@ -1,49 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   min_argument.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 21:25:45 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/25 08:40:56 by mucakmak         ###   ########.fr       */
+/*   Created: 2023/08/25 08:36:08 by mucakmak          #+#    #+#             */
+/*   Updated: 2023/08/25 10:17:38 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	del(int nbr)
+void	arg_controller(int argc, t_list **stack_a, t_list **stack_b)
 {
-	nbr = 0;
+	if (argc == 4)
+		three_argument(stack_a, stack_b);
 }
 
-void	swap(t_list **list)
+void	three_argument(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*temp;
+	t_list	*last;
 
-	if (ft_lstsize(*list) < 2)
-		return ;
-	temp = (*list)->next;
-	(*list)->next = temp->next;
-	temp->next = (*list);
-	*list = temp;
-}
-
-void	sa(t_list **stack_a)
-{
-	swap(stack_a);
-	write(1, "sa\n", 3);
-}
-
-void	sb(t_list **stack_b)
-{
-	swap(stack_b);
-	write(1, "sb\n", 3);
-}
-
-void	ss(t_list **stack_a, t_list **stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
-	write(1, "ss\n", 3);
+	last = ft_lstlast(*stack_a);
+	if ((*stack_a)->content < last->content)
+		ra(stack_a);
+	while ((*stack_a)->content > last->content)
+	{
+		if ((*stack_a)->content > (*stack_a)->next->content)
+			sa(stack_a);
+		rra(stack_a);
+	}
+	exit(0);
 }
