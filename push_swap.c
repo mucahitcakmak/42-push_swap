@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 19:16:33 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/25 09:45:07 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 01:42:48 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	stack_init(t_list **stack_a, char *argv[])
 
 void	write_list(char *str, t_list *a)
 {
+	printf("----------------\n");
 	printf("%s\n", str);
 	while (a)
 	{
 		printf("%d     -> flag: %d\n", a->content, a->flag);
 		a = a->next;
 	}
-	printf("----------------\n");
 }
 
 int	main(int argc, char *argv[])
@@ -50,11 +50,12 @@ int	main(int argc, char *argv[])
 
 	stack_a = NULL;
 	stack_b = NULL;
+	lctrl = malloc(sizeof(t_list_ctrl));
 	if (argc == 1)
 		return (0);
 	stack_init(&stack_a, argv + 1);
 	arg_controller(argc, lctrl, &stack_a, &stack_b);
-	//write_list("Stack_A", stack_a);
-	//write_list("Stack_B", stack_b);
+	write_list("Stack_A", stack_a);
+	write_list("Stack_B", stack_b);
 	return (0);
 }

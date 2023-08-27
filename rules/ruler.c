@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   ruler.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 21:25:45 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/25 08:40:56 by mucakmak         ###   ########.fr       */
+/*   Created: 2023/08/24 22:06:52 by mucakmak          #+#    #+#             */
+/*   Updated: 2023/08/27 17:35:43 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
-void	swap(t_list **list)
+void	rotate(t_list **list)
 {
-	t_list	*temp;
+	t_list	*first;
+	t_list	*end;
 
 	if (ft_lstsize(*list) < 2)
 		return ;
-	temp = (*list)->next;
-	(*list)->next = temp->next;
-	temp->next = (*list);
-	*list = temp;
+	first = *list;
+	end = ft_lstlast(*list);
+	*list = (*list)->next;
+	end->next = first;
+	first->next = NULL;
 }
 
-void	sa(t_list **stack_a)
+void	ra(t_list **stack_a)
 {
-	swap(stack_a);
-	write(1, "sa\n", 3);
+	rotate(stack_a);
+	write(1, "ra\n", 3);
 }
 
-void	sb(t_list **stack_b)
+void	rb(t_list **stack_b)
 {
-	swap(stack_b);
-	write(1, "sb\n", 3);
+
+	rotate(stack_b);
+	write(1, "rb\n", 3);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
-	write(1, "ss\n", 3);
+	rotate(stack_a);
+	rotate(stack_b);
+	write(1, "rr\n", 3);
 }

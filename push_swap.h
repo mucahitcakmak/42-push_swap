@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:29:24 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/25 09:10:21 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 01:43:29 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,22 @@ typedef struct s_list_ctrl
 // arguman_check.c
 void	arg_controller(int argc, t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b);
 int		check_sorting(t_list_ctrl *lctrl, t_list *stack_a);
-int		add_flag(t_list *stack_a);
+void		add_flag(t_list *stack_a);
 t_list	*sort_argument(t_list *sorted_list);
+void	eight_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b);
 
 // max_argument.c
-int		five_hundred_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b);
+void		five_hundred_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b);
 int		loop_size(int lst_max_flag);
 void	a_sort_check(t_list **stack_a, t_list **stack_b, int index);
 void	b_sort_check(t_list **stack_a, t_list **stack_b, int index);
 void    closing(t_list **stack_a, t_list **stack_b);
 
 // min_argument.c
-void	three_argument(t_list **stack_a);
+void	eight_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b);
+void	stack_a_edit(t_list **stack_a, t_list **stack_b, int lst_size);
+void	stack_b_edit(t_list **stack_a, t_list **stack_b);
+int		get_flag_index(t_list *stack_a, int	flag);
 
 // push_swap.c
 void	error_message();
@@ -75,13 +79,10 @@ void	ss(t_list **stack_a, t_list **stack_b);
 int		ft_atoi(const char *nptr);
 int		ft_atoi_checker(const char *nbr);
 t_list	*ft_lstnew(int content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new_element);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(int));
-void	ft_lstclear(t_list **lst, void (*del)(int));
-void	ft_lstiter(t_list *lst, void (*f)(int));
+void	ft_lstadd_back(t_list **lst, t_list *new_element);
 t_list	*ft_lstmap(t_list *lst);
 void	ft_lstchange_value(t_list *element_1, t_list *element_2);
 

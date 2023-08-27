@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int five_hundred_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b)
+void five_hundred_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b)
 {
     int i;
     int max_bit_size;
@@ -43,6 +43,7 @@ void    a_sort_check(t_list **stack_a, t_list **stack_b, int index)
             ra(stack_a);
         else
             pb(stack_a, stack_b);
+		free(stack_a_clone);
         stack_a_clone = stack_a_clone->next;
     }
 }
@@ -58,6 +59,7 @@ void    b_sort_check(t_list **stack_a, t_list **stack_b, int index)
            pa(stack_a, stack_b);
         else
             rb(stack_b);
+		free(stack_b_clone);
         stack_b_clone = stack_b_clone->next;
     }
 }
@@ -70,6 +72,7 @@ void    closing(t_list **stack_a, t_list **stack_b)
     while (stack_b_clone)
     {
         pa(stack_a, stack_b);
+		free(stack_b_clone);
         stack_b_clone = stack_b_clone->next;
     }
 }

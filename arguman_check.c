@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 09:44:44 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/25 10:17:25 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 00:55:08 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	arg_controller(int argc, t_list_ctrl *lctrl, t_list **stack_a, t_list **sta
 {
 	add_flag(*stack_a);
 	check_sorting(lctrl, *stack_a);
-	if (argc <= 500)
+	if (argc <= 6)
+		eight_argument(lctrl, stack_a, stack_b);
+	else if (argc <= 600)
 		five_hundred_argument(lctrl, stack_a, stack_b);
 }
 
-int	add_flag(t_list *stack_a)
+void	add_flag(t_list *stack_a)
 {
 	int	flag;
 	t_list *a_start_pos;
@@ -38,6 +40,7 @@ int	add_flag(t_list *stack_a)
 				stack_a->flag = flag++;
 			stack_a = stack_a->next;
 		}
+		free(sorted_list);
 		sorted_list = sorted_list->next;
 	}
 }
