@@ -54,7 +54,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	stack_init(&stack_a, argv + 1);
 	arg_controller(argc, lctrl, &stack_a, &stack_b);
-	write_list("Stack_A", stack_a);
-	write_list("Stack_B", stack_b);
+	//write_list("Stack_A", stack_a);
+	//write_list("Stack_B", stack_b);
 	return (0);
 }

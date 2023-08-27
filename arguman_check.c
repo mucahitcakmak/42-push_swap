@@ -14,37 +14,10 @@
 
 void	arg_controller(int argc, t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b)
 {
-	add_flag(*stack_a); // flagleri ekle
-	check_sorting(lctrl, *stack_a); // argümanlar sıralıysa işlem yapmadan programdan çık
-	if (argc == 4)
-		three_argument(stack_a);
-	// else if (argc <= 500)
-	// 	five_hundred_argument(stack_a, stack_b);
-}
-
-int	check_sorting(t_list_ctrl *lctrl, t_list *stack_a)
-{
-	int	i;
-	int	min;
-	int	flag;
-
-	i = 0;
-	min = stack_a->content;
-	flag = 0;
-	while (stack_a)
-	{
-		if (min > stack_a->content)
-			min = stack_a->content;
-		if (stack_a->next != NULL && stack_a->content > stack_a->next->content)
-			flag++;
-		stack_a = stack_a->next;
-		i++;
-	}
-	lctrl->lst_size = i;
-	lctrl->lst_min = min;
-	if (flag > 0)
-		return (0);
-	exit(0); 
+	add_flag(*stack_a);
+	check_sorting(lctrl, *stack_a);
+	if (argc <= 500)
+		five_hundred_argument(lctrl, stack_a, stack_b);
 }
 
 int	add_flag(t_list *stack_a)
@@ -55,8 +28,7 @@ int	add_flag(t_list *stack_a)
 
 	flag = 1;
 	a_start_pos = stack_a;
-	sorted_list = sort_argument(ft_lstmap(stack_a)); // sıralanmış kopya liste oluştur
-	write_list("SIRALANMIŞ LİSTE", sorted_list);
+	sorted_list = sort_argument(ft_lstmap(stack_a));
 	while (sorted_list)
 	{
 		stack_a = a_start_pos;
@@ -90,4 +62,25 @@ t_list	*sort_argument(t_list *sorted_list)
 		start_pos = start_pos->next;
 	}
 	return (sorted_list);
+}
+
+int	check_sorting(t_list_ctrl *lctrl, t_list *stack_a)
+{
+	int	flag;
+	t_list	*max;
+
+	flag = 0;
+	max = stack_a;
+	while (stack_a)
+	{
+		if (max->content < stack_a->content)
+			max = stack_a;
+		if (stack_a->next != NULL && stack_a->content > stack_a->next->content)
+			flag++;
+		stack_a = stack_a->next;
+	}
+	lctrl->lst_max_flag = max->flag;
+	if (flag > 0)
+		return (0);
+	exit(0); 
 }
