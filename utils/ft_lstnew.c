@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 12:33:45 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/07/12 11:41:00 by mucakmak         ###   ########.fr       */
+/*   Created: 2023/07/10 16:44:18 by mucakmak          #+#    #+#             */
+/*   Updated: 2023/08/24 20:22:20 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+t_list	*ft_lstnew(int content)
 {
-	size_t	i;
-	size_t	j;
+	t_list	*lst;
 
-	i = 0;
-	j = 0;
-	while (dst[i] && i < dstsize)
-		i++;
-	if (dstsize > ft_strlen(dst))
-	{
-		while (src[j] && ((i + j + 1) < dstsize))
-		{
-			dst[i + j] = src[j];
-			j++;
-		}
-	}
-	if (i < dstsize)
-		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	lst = (t_list *)malloc(sizeof(t_list));
+	if (!lst)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
 }

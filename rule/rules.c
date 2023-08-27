@@ -10,12 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	del(int nbr)
-{
-	nbr = 0;
-}
 
 void	swap(t_list **list)
 {

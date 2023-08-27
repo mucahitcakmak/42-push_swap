@@ -12,13 +12,7 @@
 
 #include "push_swap.h"
 
-void	arg_controller(int argc, t_list **stack_a, t_list **stack_b)
-{
-	if (argc == 4)
-		three_argument(stack_a, stack_b);
-}
-
-void	three_argument(t_list **stack_a, t_list **stack_b)
+void	three_argument(t_list **stack_a)
 {
 	t_list	*last;
 
@@ -31,5 +25,5 @@ void	three_argument(t_list **stack_a, t_list **stack_b)
 			sa(stack_a);
 		rra(stack_a);
 	}
-	exit(0);
+	//exit(0);
 }

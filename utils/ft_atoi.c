@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -33,4 +33,23 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	return (result * sign);
+}
+
+int	ft_atoi_checker(const char *nbr)
+{
+	int	i;
+
+	i = 0;
+	while ((nbr[i] == ' ') || (nbr[i] == '\t') || (nbr[i] == '\r')
+		|| (nbr[i] == '\v') || (nbr[i] == '\f') || (nbr[i] == '\n'))
+		i++;
+	if (nbr [i] == '+' || nbr[i] == '-')
+		i++;
+	while (nbr[i])
+	{
+		if (!('0' <= nbr[i] && '9' >= nbr[i]))
+			error_message();
+		i++;
+	}
+	return (ft_atoi(nbr));
 }

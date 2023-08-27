@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 14:27:52 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/07/12 11:52:37 by mucakmak         ###   ########.fr       */
+/*   Created: 2023/07/11 13:01:21 by mucakmak          #+#    #+#             */
+/*   Updated: 2023/07/11 13:24:56 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	if (!(*lst))
 	{
-		if (s[i] == (char)c)
-			return ((char *)s + i);
-		i--;
+		*lst = new;
+		return ;
 	}
-	return (0);
+	ft_lstlast(*lst)->next = new;
 }

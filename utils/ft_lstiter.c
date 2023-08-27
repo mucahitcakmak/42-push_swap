@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/04 15:14:15 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/07/12 11:44:28 by mucakmak         ###   ########.fr       */
+/*   Created: 2023/07/10 20:04:25 by mucakmak          #+#    #+#             */
+/*   Updated: 2023/08/24 20:24:49 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(int))
 {
-	size_t				i;
-	const unsigned char	*temp;
-
-	i = 0;
-	temp = (const unsigned char *)s;
-	while (i < n)
+	if (!lst)
+		return ;
+	while (lst)
 	{
-		if (temp[i] == (unsigned char)c)
-			return ((void *)(s + i));
-		i++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return (0);
 }
