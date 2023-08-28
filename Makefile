@@ -1,6 +1,6 @@
 NAME = push_swap
 
-CC =		@gcc -g
+CC =		gcc
 CGLAF =		-Wall -Wextra -Werror
 SRCS =		push_swap.c arguman_check.c min_argument.c max_argument.c three_sort.c \
 			rules/rulep.c rules/ruler.c rules/rulerr.c rules/rules.c \
@@ -16,10 +16,10 @@ $(NAME): $(OBJS)
 		$(CC) $(CGLAF) $(OBJS) -o $(NAME)
 
 clean: $(OBJS)
-		@rm -rf $(OBJS)
+		rm -rf $(OBJS)
 
 fclean: clean
-		@rm -rf push_swap
+		rm -rf push_swap
 
 re: all clean
 

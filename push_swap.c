@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 19:16:33 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 15:51:22 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 18:21:39 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int	stack_init(t_list **stack_a, char *argv[])
 			arg_size++;
 			temp = ft_lstnew(ft_atoi_checker(array[j]));
 			ft_lstadd_back(stack_a, temp);
+			free(array[j]);
 		}
+		free(array);
 	}
 	return (arg_size);
 }
