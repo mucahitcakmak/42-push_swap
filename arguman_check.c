@@ -6,27 +6,28 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 09:44:44 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 00:55:08 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:29:39 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	arg_controller(int argc, t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b)
+void	arg_controller(int arg_size, t_list_ctrl *lctrl, t_list **stack_a, 
+	t_list **stack_b)
 {
 	add_flag(*stack_a);
 	check_sorting(lctrl, *stack_a);
-	if (argc <= 6)
-		eight_argument(lctrl, stack_a, stack_b);
-	else if (argc <= 600)
+	if (arg_size <= 5)
+		five_argument(stack_a, stack_b);
+	else
 		five_hundred_argument(lctrl, stack_a, stack_b);
 }
 
 void	add_flag(t_list *stack_a)
 {
-	int	flag;
-	t_list *a_start_pos;
-	t_list *sorted_list;
+	int		flag;
+	t_list	*a_start_pos;
+	t_list	*sorted_list;
 
 	flag = 1;
 	a_start_pos = stack_a;
@@ -69,7 +70,7 @@ t_list	*sort_argument(t_list *sorted_list)
 
 int	check_sorting(t_list_ctrl *lctrl, t_list *stack_a)
 {
-	int	flag;
+	int		flag;
 	t_list	*max;
 
 	flag = 0;

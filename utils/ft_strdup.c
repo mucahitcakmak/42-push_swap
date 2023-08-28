@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 16:44:18 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 13:28:56 by mucakmak         ###   ########.fr       */
+/*   Created: 2023/07/04 17:08:16 by mucakmak          #+#    #+#             */
+/*   Updated: 2023/08/28 13:28:52 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*ft_lstnew(int content)
+char	*ft_strdup(const char *s1)
 {
-	t_list	*lst;
+	int		i;
+	int		len;
+	char	*string;
 
-	lst = (t_list *)malloc(sizeof(t_list));
-	if (!lst)
+	i = 0;
+	len = ft_strlen(s1);
+	string = malloc(sizeof(char) * (len + 1));
+	if (!string)
 		return (NULL);
-	lst->content = content;
-	lst->next = NULL;
-	lst->flag = 0;
-	return (lst);
+	while (i < len)
+	{
+		string[i] = s1[i];
+		i++;
+	}
+	string[i] = '\0';
+	return (string);
 }

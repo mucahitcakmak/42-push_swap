@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,13 +6,13 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 08:36:08 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 00:51:25 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:33:20 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	eight_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b)
+void	five_argument(t_list **stack_a, t_list **stack_b)
 {
 	int	lst_size;
 
@@ -25,10 +24,8 @@ void	eight_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b)
 void	three_argument(t_list **stack_a)
 {
 	t_list	*iter;
-	t_list	*end;
 
 	iter = *stack_a;
-	end = ft_lstlast(*stack_a);
 	if (iter->flag == 4)
 	{
 		if (iter->next->flag == 3)
@@ -41,11 +38,15 @@ void	three_argument(t_list **stack_a)
 		rra(stack_a);
 		sa(stack_a);
 	}
-	else
+	else if (iter->flag == 5)
 	{
-		ra(stack_a);
-		if (iter->next->flag == 4)
+		if (iter->next->flag == 3)
+			ra(stack_a);
+		else if (iter->next->flag == 4)
+		{
+			ra(stack_a);
 			sa(stack_a);
+		}
 	}
 }
 
@@ -53,7 +54,7 @@ void	stack_a_edit(t_list **stack_a, t_list **stack_b, int lst_size)
 {
 	int	i;
 	int	j;
-	int temp;
+	int	temp;
 
 	i = 1;
 	j = 0;
@@ -93,19 +94,19 @@ void	stack_b_edit(t_list **stack_a, t_list **stack_b)
 		pa(stack_a, stack_b);
 }
 
-int	get_flag_index(t_list *stack_a, int	flag)
+int	get_flag_index(t_list *stack_a, int flag)
 {
 	int		index;
-	t_list  *iter;
+	t_list	*iter;
 
 	index = 0;
 	iter = stack_a;
-    while (iter)
-    {
+	while (iter)
+	{
 		if (iter->flag == flag)
-			break;
+			break ;
 		index++;
-        iter = iter->next;
-    }
+		iter = iter->next;
+	}
 	return (index + 1);
 }

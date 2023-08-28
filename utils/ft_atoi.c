@@ -6,17 +6,17 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:29:27 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/27 16:59:40 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:29:00 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int		i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -30,6 +30,8 @@ int	ft_atoi(const char *nptr)
 	while ('0' <= nptr[i] && '9' >= nptr[i])
 	{
 		result = (10 * result) + (nptr[i] - '0');
+		if (result * sign > 2147483647 || result * sign < -2147483647)
+			error_message();
 		i++;
 	}
 	return (result * sign);
@@ -43,11 +45,20 @@ int	ft_atoi_checker(const char *nbr)
 	while ((nbr[i] == ' ') || (nbr[i] == '\t') || (nbr[i] == '\r')
 		|| (nbr[i] == '\v') || (nbr[i] == '\f') || (nbr[i] == '\n'))
 		i++;
-	if (nbr [i] == '+' || nbr[i] == '-')
-		i++;
+	if ((nbr [i] == '+' || nbr[i] == '-'))
+	{
+		if (('0' <= nbr[i + 1] && '9' >= nbr[i + 1]))
+			i++;
+		else
+			error_message();
+	}
 	while (nbr[i])
 	{
-		if (!('0' <= nbr[i] && '9' >= nbr[i]))
+		while ((nbr[i] == ' ') || (nbr[i] == '\t') || (nbr[i] == '\r')
+			|| (nbr[i] == '\v') || (nbr[i] == '\f') || (nbr[i] == '\n'))
+			i++;
+		if (!('0' <= nbr[i] && '9' >= nbr[i]) || nbr [i] == '+' 
+			|| nbr[i] == '-')
 			error_message();
 		i++;
 	}

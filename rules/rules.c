@@ -6,12 +6,11 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 21:25:45 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/27 17:34:56 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 13:27:04 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 void	swap(t_list **list)
 {
