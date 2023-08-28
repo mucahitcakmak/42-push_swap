@@ -22,32 +22,32 @@ void	eight_argument(t_list_ctrl *lctrl, t_list **stack_a, t_list **stack_b)
 	stack_b_edit(stack_a, stack_b);
 }
 
-// void	three_argument(t_list **stack_a)
-// {
-// 	t_list	*iter;
-// 	t_list	*end;
+void	three_argument(t_list **stack_a)
+{
+	t_list	*iter;
+	t_list	*end;
 
-// 	iter = *stack_a;
-// 	end = ft_lstlast(*stack_a);
-
-// 	if (iter->flag == 5)
-// 	{
-// 		if (iter->next->flag > iter->flag)
-// 			sa(stacks->stacka, stacks->topa);
-// 	}
-// 	else if (iter->flag == 4)
-// 	{
-// 		rra(stacks->stacka, stacks->topa);
-// 		if (stacks->stacka[2] > stacks->stacka[1])
-// 			sa(stacks->stacka, stacks->topa);
-// 	}
-// 	else
-// 	{
-// 		ra(stacks->stacka, stacks->topa);
-// 		if (stacks->stacka[2] > stacks->stacka[1])
-// 			sa(stacks->stacka, stacks->topa);
-// 	}
-// }
+	iter = *stack_a;
+	end = ft_lstlast(*stack_a);
+	if (iter->flag == 4)
+	{
+		if (iter->next->flag == 3)
+			sa(stack_a);
+		else if (iter->next->flag == 5)
+			rra(stack_a);
+	}
+	else if (iter->flag == 3 && iter->next->flag == 5)
+	{
+		rra(stack_a);
+		sa(stack_a);
+	}
+	else
+	{
+		ra(stack_a);
+		if (iter->next->flag == 4)
+			sa(stack_a);
+	}
+}
 
 void	stack_a_edit(t_list **stack_a, t_list **stack_b, int lst_size)
 {
@@ -75,7 +75,7 @@ void	stack_a_edit(t_list **stack_a, t_list **stack_b, int lst_size)
 			pb(stack_a, stack_b);
 		}
 	}
-	//three_argument(stack_a);
+	three_argument(stack_a);
 }
 
 void	stack_b_edit(t_list **stack_a, t_list **stack_b)
