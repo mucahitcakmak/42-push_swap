@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 09:44:44 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 13:29:39 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:05:23 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	arg_controller(int arg_size, t_list_ctrl *lctrl, t_list **stack_a,
 {
 	add_flag(*stack_a);
 	check_sorting(lctrl, *stack_a);
-	if (arg_size <= 5)
+	if (arg_size == 3)
+		solo_three_argument(stack_a, stack_b);
+	else if (arg_size <= 5)
 		five_argument(stack_a, stack_b);
 	else
 		five_hundred_argument(lctrl, stack_a, stack_b);

@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 19:16:33 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 13:33:44 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:51:22 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_message(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
@@ -44,17 +44,6 @@ int	stack_init(t_list **stack_a, char *argv[])
 	return (arg_size);
 }
 
-void	write_list(char *str, t_list *a)
-{
-	printf("----------------\n");
-	printf("%s\n", str);
-	while (a)
-	{
-		printf("%d     -> flag: %d\n", a->content, a->flag);
-		a = a->next;
-	}
-}
-
 int	main(int argc, char *argv[])
 {
 	int			arg_size;
@@ -69,7 +58,5 @@ int	main(int argc, char *argv[])
 		return (0);
 	arg_size = stack_init(&stack_a, argv + 1);
 	arg_controller(arg_size, lctrl, &stack_a, &stack_b);
-	write_list("Stack_A", stack_a);
-	write_list("Stack_B", stack_b);
 	return (0);
 }

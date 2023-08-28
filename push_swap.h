@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:29:24 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 13:34:51 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:33:05 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ void	stack_a_edit(t_list **stack_a, t_list **stack_b, int lst_size);
 void	stack_b_edit(t_list **stack_a, t_list **stack_b);
 int		get_flag_index(t_list *stack_a, int flag);
 
+// three_sort.c
+void	solo_three_argument(t_list **stack_a, t_list **stack_b);
+
 // push_swap.c
 void	error_message(void);
 int		stack_init(t_list **stack_a, char *argv[]);
-void	write_list(char *str, t_list *a);
 
 // rule/
 void	push(t_list **src, t_list **dst);
@@ -72,7 +74,6 @@ void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
-void	del(int nbr);
 void	swap(t_list **list);
 void	sa(t_list **stack_a);
 void	sb(t_list **stack_b);
