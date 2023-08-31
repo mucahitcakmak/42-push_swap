@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 16:29:27 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 16:16:54 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:35:17 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ long	ft_atoi(const char *nptr)
 	while ('0' <= nptr[i] && '9' >= nptr[i])
 	{
 		result = (10 * result) + (nptr[i] - '0');
-		if (result * sign > 2147483647 || result * sign < -2147483647)
+		if (result * sign > 2147483647 || result * sign < -2147483648)
 			error_message();
 		i++;
 	}
