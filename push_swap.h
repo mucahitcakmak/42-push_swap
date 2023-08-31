@@ -6,7 +6,7 @@
 /*   By: mucakmak <mucakmak@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:29:24 by mucakmak          #+#    #+#             */
-/*   Updated: 2023/08/28 15:33:05 by mucakmak         ###   ########.fr       */
+/*   Updated: 2023/08/31 23:11:31 by mucakmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	solo_three_argument(t_list **stack_a, t_list **stack_b);
 
 // push_swap.c
 void	error_message(void);
-int		stack_init(t_list **stack_a, char *argv[]);
+void	arguman_control(char **argv, int argc, int i);
+int		stack_init(t_list **stack_a, char *argv[], int argc);
 
 // rule/
 void	push(t_list **src, t_list **dst);
